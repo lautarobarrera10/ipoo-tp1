@@ -3,10 +3,11 @@
 include_once "Fecha.php";
 
 function increase($days, $date){
-    $newDate = $date->incrementarDia($days);
+    $newDate = $date->increaseDays($days);
     return $newDate;
 }
 
-$date = new Date(1,1,2000);
+$date = new Date(1,1,2024);
+echo $date;
 
-$increase(2, $date);
+echo increase(365, $date);
