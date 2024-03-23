@@ -47,15 +47,38 @@ Class Date {
     }
 
     public function getExtendedDate(){
-        $months = ["enero", "febrero", "marzo", "abril", "mayo", "junio", "julio", "agosto", "octubre", "septiembre", "noviembre", "diciembre"];
+        $months = ["enero", "febrero", "marzo", "abril", "mayo", "junio", "julio", "agosto", "septiembre", "octubre", "noviembre", "diciembre"];
         $day = str_pad(strval($this->getDay()), 2, 0, STR_PAD_LEFT);
         $month = $months[$this->getMonth() - 1];
         $year = str_pad(strval($this->getMonth()), 4, 0, STR_PAD_LEFT);
-        
+
         return $day . " de " . $month . " de " . $year;
     }
 
-    public function incrementarDia($cantidadDias){
-        
+    public function increaseDays($numberOfDays){
+        $daysOfTheMonth = [
+            "enero" => 31,
+            "febrero" => 28,
+            "marzo" => 31,
+            "abril" => 30,
+            "mayo" => 31,
+            "junio" => 30,
+            "julio" => 31,
+            "agosto" => 31,
+            "septiembre" => 30,
+            "octubre" => 31,
+            "noviembre" => 30,
+            "diciembre" => 31
+        ];
+
+        $year = $this->getYear();
+
+        $isLeap = ($year / 4 == 0 && $year / 100 != 0) || $year / 400 == 0;
+
+        if ($isLeap) {
+            $daysOfTheMonth["febrero"] = 29;
+        }
+
+        echo $daysOfTheMonth[$this->getMonth - 1];
     }
 }
