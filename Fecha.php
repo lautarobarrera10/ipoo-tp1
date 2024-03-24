@@ -19,7 +19,7 @@ Class Date {
         $this->day = $day;
         $this->month = $month;
         $this->year = $year;
-        $this->setDaysOfTheMonth($month);        
+        $this->setDaysOfTheMonth($month);
 
         echo $this->getDaysOfTheMonth() . "\n";
     }
@@ -102,7 +102,7 @@ Class Date {
 
 
     public function increaseDays($numberOfDays){
-        for ($i=0; $i < $numberOfDays; $numberOfDays--) { 
+        for ($i=0; $i < $numberOfDays; $numberOfDays--) {
             if ($this->getDay() == $this->getDaysOfTheMonth()){
                 $this->setDay(1);
                 if ($this->getMonth() == 12){
